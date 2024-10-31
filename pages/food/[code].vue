@@ -1,0 +1,142 @@
+<template>
+    <div class=" bg-gradient-to-b  from-slate-700 to-black bg-cover flex flex-col text-white">
+      <!-- Header Row -->
+      <div class="flex flex-row mt-1 items-center justify-between px-4 py-4">
+        <Nuxt-Link to="/menu">  <UIcon name="tabler:arrow-back-up" class="w-10 h-10" />
+           </nuxt-link>
+          <span  class="text-2xl w-full font-bold text-center flex-grow">{{ title }}</span>
+          <div class="w-10 h-10" >
+      </div>
+      </div>
+  
+      <!-- Image Row -->
+      <div class="flex justify-center mt-10 cursor-pointer">
+        <img :src="image" alt=""  style="object-fit: cover;" class=" w-72 h-72" />
+        <!-- <div class="rounded-b-full" style="
+    bottom: 540px;
+    position: absolute;
+    z-index: -1;
+    height: 490px;
+    width: 1000px;
+    background-color: #252729;
+    left: -292px;">
+
+      </div> -->
+      </div>
+  
+  
+  
+      <!-- Description Row -->
+      <div style="direction: rtl;" class="grid grid-cols-2 flex-row flex-col-2  mt-5 p-4">
+        <div class=" text-orange-500 flex-col-1 text-2xl font-semibold mb-2 mr-3 ">توضیحات</div>
+        <div class=" flex flex-col-1 items-center justify-self-end ml-12 justify-center w-10 h-10 bg-orange-500">
+    <button @click="decrement" class="bg-orange-500 text-white h-10 px-3 py-1 rounded-r-3xl"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"/></svg></button>
+    <div class="text-[23px] text-center ">{{ quantity }}</div>
+    <button @click="increment" class="bg-orange-500 text-white h-10 px-3 py-1 rounded-l-3xl"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 24"><path fill="white" d="M19 12.998h-6v6h-2v-6H5v-2h6v-6h2v6h6z"/></svg></button>
+  </div>
+
+          </div>
+          <div  style="direction: rtl;" class="Estedad_FD_Light text-justify leading-7  min-h-40 mx-7 ">
+          {{ description }}
+          </div>
+      <!-- Grid Info Row -->
+      <div class="grid grid-cols-3 gap-2 px-4 mb-4">
+        <div class="bg-gray-800 col-span-1 p-6 text-center rounded-3xl flex flex-col space-y-2"> <span class="text-orange-500 text-16px">   نوع </span><span class="font-bold text-20px">{{ type }}</span>
+        </div>
+        <div class="bg-gray-800 col-span-1 p-6 text-center rounded-3xl flex flex-col space-y-2"> <span class="text-orange-500 text-16px"> تحویل</span>  <span class="font-bold text-20px rtl">{{time}} دقیقه</span></div>
+        <div class="bg-gray-800 col-span-1 p-6 text-center rounded-3xl flex flex-col space-y-2"> <span class="text-orange-500 text-16px"> ترکیب</span>  <span class="font-bold text-20px"></span> {{ conposition }}</div></div>
+  
+      <!-- Price and Button Row -->
+      <div style="background: #f97316;" class="flex mb-3 items-center rounded-full mx-3 justify-between px-4 py-4">
+        <div class="text-lg font-semibold"> <span class="Estedad_FD_Light float-left font-light text-black"  > هزار تومان    </span><span class="text-[25px] ml-1" >{{ price }}  </span> </div>
+        <button class="bg-black text-white px-6 py-2 rounded-full">افزودن به سبد خرید</button>
+      </div>
+
+    </div>
+    
+  </template>
+  
+  
+<script setup lang="ts">
+
+const quantity = ref<number>(1);
+const title = ref<string>('');
+const description = ref<string>('');
+const price = ref<number>(0);
+const time = ref<number>();
+const image = ref<string>('');
+const type = ref<string>('');
+const conposition = ref<number>(0);
+
+const list = ref<any[]>([
+  {
+    id: 1,
+    title: 'چیـز کـیـک',
+    description: 'چیز کیک  با ترکیبی از پنیر خامه‌ای ممتاز و بیسکویت‌های ترد تهیه شده و طعمی بی‌نظیر و دلپذیر دارد. این دسر نرم و سبک، برای هر جشن و مناسبت خاصی مناسب بوده و با میوه‌های تازه و سس شکلات تزئین شده است.!',
+    price: 86 , 
+    time : 5,
+    image : '/img/pexels-elifgokce787-16871293-removebg-preview.png',
+    type : "کیک",
+    conposition :5 
+  },
+  {
+    id: 2,
+    title: 'کاپـوچـینـو',
+    description: 'کاپوچینو  از ترکیب قهوه اسپرسو، شیر بخار داده شده و کف شیر نرم تهیه می‌شود. این گزینه شیک و دلپذیر، احساس گرما و آرامش را به هر لحظه‌ی شما اضافه می‌کند!',
+    price: 73, 
+    time : 15,
+    image :'/img/pexels-orlovamaria-4916561-removebg-preview.png',
+    type : 'قهوه',
+    conposition : 5
+  },
+  {
+    id: 3,
+    title: 'آیـس لـته',
+    description: 'آیس لته , نوشیدنی خنکی که از ترکیب قهوه اسپرسو، شیر سرد و یخ تهیه می‌شود. این ترکیب خامه‌ای و خوش‌طعم، انتخابی ایده‌آل برای روزهای گرم تابستانی است و تازه‌ترین طراوت را به شما هدیه می‌دهد!',
+    price: 76, 
+    time : 10,
+    image : '/img/ice-latte2.png',
+    type : "قهوه",
+    conposition : 5
+  },
+  {
+    id: 4,
+    title: 'شـیـک تـوت فـرنگـی',
+    description: 'شیک توت فرنگی یک دسر خنک و میوه‌ای است که از ترکیب توت فرنگی تازه، بستنی و شیر تهیه می‌شود. این نوشیدنی خوشمزه و خامه‌ای، طعمی ملس و لذیذ دارد که هر کسی را به یک تجربه تابستانی شگفت‌انگیز می‌برد!',
+    price: 90, 
+    time : 15,
+    image : '/img/shake-toot.png',
+    type : "شیک",
+    conposition : 5
+  },
+]);
+const increment = () => {
+  quantity.value++;
+}
+
+const decrement = () => {
+  if (quantity.value > 1) quantity.value--;
+}
+
+const findItem = (code: any) => {
+  let obj = list.value.find((item: any) => item.id == code);
+  title.value = obj.title;
+  description.value = obj.description;
+  price.value = obj.price;
+  image.value = obj.image;
+  type.value = obj.type;
+  time.value = obj.time;
+  conposition.value = obj.conposition;
+
+}
+
+onMounted(async () => {
+  const route = useRoute();
+  const code = route.params.code;
+  findItem(code);
+ console.log('code : ', code)
+});
+</script>
+  <style scoped>
+  </style>
+  
