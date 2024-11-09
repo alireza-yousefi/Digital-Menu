@@ -10,18 +10,8 @@
       </div>
   
       <!-- Image Row -->
-      <div class="flex justify-center mt-10 cursor-pointer">
-        <img :src="image" alt=""  style="object-fit: cover;" class=" w-72 h-72" />
-        <!-- <div class="rounded-b-full" style="
-    bottom: 540px;
-    position: absolute;
-    z-index: -1;
-    height: 490px;
-    width: 1000px;
-    background-color: #252729;
-    left: -292px;">
-
-      </div> -->
+      <div class="flex justify-center mt-2 cursor-pointer">
+        <img :src="image" alt=""  style="object-fit: cover;" class=" h-72" />
       </div>
   
   
@@ -48,9 +38,12 @@
   
       <!-- Price and Button Row -->
       <div style="background: #f97316;" class="flex mb-3 items-center rounded-full mx-3 justify-between px-4 py-4">
-        <div class="text-lg font-semibold"> <span class="Estedad_FD_Light float-left font-light text-black"  > هزار تومان    </span><span class="text-[25px] ml-1" >{{ price }}  </span> </div>
-        <button class="bg-black text-white px-6 py-2 rounded-full">افزودن به سبد خرید</button>
+      <div class="text-lg font-semibold">
+        <span class="Estedad_FD_Light float-left font-light text-black">هزار تومان</span>
+        <span class="text-[25px] ml-1">{{ price }}</span>
       </div>
+      <button @click="addToCart" class="bg-black text-white px-6 py-2 rounded-full">افزودن به سبد سفارش</button>
+    </div>
 
     </div>
     
@@ -72,7 +65,7 @@ const list = ref<any[]>([
   {
     id: 1,
     title: 'چیـز کـیـک',
-    description: 'چیز کیک  با ترکیبی از پنیر خامه‌ای ممتاز و بیسکویت‌های ترد تهیه شده و طعمی بی‌نظیر و دلپذیر دارد. این دسر نرم و سبک، برای هر جشن و مناسبت خاصی مناسب بوده و با میوه‌های تازه و سس شکلات تزئین شده است.!',
+    description: 'چیز کیک  با  ترکیبی از پنیر خامه‌ای ممتاز و بیسکویت‌های ترد تهیه شده و طعمی بی‌نظیر و دلپذیر دارد. این دسر نرم و سبک، برای هر جشن و مناسبت خاصی مناسب بوده و با میوه‌های تازه و سس شکلات تزئین شده است.!',
     price: 86 , 
     time : 5,
     image : '/img/pexels-elifgokce787-16871293-removebg-preview.png',
@@ -109,6 +102,16 @@ const list = ref<any[]>([
     type : "شیک",
     conposition : 5
   },
+  {
+  id: 5,
+  title: 'سیب‌زمینی سرخ‌کرده',
+  description: 'سیب‌زمینی سرخ‌کرده تُرد و طلایی با طعمی نمکی و دلچسب که همیشه انتخاب مناسبی برای میان‌وعده است!',
+  price: 98, 
+  time: 10,
+  image: '/img/frise.png',
+  type: 'میان‌وعده',
+  conposition: 3
+}
 ]);
 const increment = () => {
   quantity.value++;
@@ -127,8 +130,43 @@ const findItem = (code: any) => {
   type.value = obj.type;
   time.value = obj.time;
   conposition.value = obj.conposition;
-
 }
+import { ref, onMounted } from 'vue';
+
+const cart = ref<any[]>([]); // سبد خرید
+
+// لود کردن سبد خرید از لوکال‌استوریج در زمان بارگذاری
+onMounted(() => {
+  const savedCart = localStorage.getItem('cart');
+  if (savedCart) {
+    cart.value = JSON.parse(savedCart);
+  }
+});
+
+// تابع افزودن محصول به سبد خرید
+const addToCart = () => {
+  const existingItem = cart.value.find(item => item.title === title.value);
+  if (existingItem) {
+    existingItem.quantity += quantity.value;
+  } else {
+    cart.value.push({
+      id: title.value,
+      title: title.value,
+      price: price.value,
+      quantity: quantity.value,
+    });
+  }
+
+  // ذخیره‌سازی سبد خرید در لوکال‌استوریج
+  localStorage.setItem('cart', JSON.stringify(cart.value));
+};
+
+  console.log('Cart:', cart.value); // نمایش وضعیت سبد خرید برای بررسی
+  console.log('Cart:', JSON.stringify(cart.value));
+
+;
+
+
 
 onMounted(async () => {
   const route = useRoute();

@@ -13,12 +13,12 @@
   <!-- عنوان اصلی صفحه -->
   <h1 :class="['text-2xl rtl font-bold text-[28px] text-center transition-all', { 'scrolled-title': isScrolled }]">کــافـِـه سـَـرو</h1>
   
-    <nuxtlink class="text-white">
+    <nuxt-link  to="/orders">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8 transition-transform duration-300">
         <path d="M2.25 2.25a.75.75 0 0 0 0 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 0 0-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 0 0 0-1.5H5.378A2.25 2.25 0 0 1 7.5 15h11.218a.75.75 0 0 0 .674-.421 60.358 60.358 0 0 0 2.96-7.228.75.75 0 0 0-.525-.965A60.864 60.864 0 0 0 5.68 4.509l-.232-.867A1.875 1.875 0 0 0 3.636 2.25H2.25ZM3.75 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM16.5 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" />
       </svg>
       <!-- آیکون سفارش -->
-    </nuxtlink>
+    </nuxt-link>
   </div>
 
   <!-- تب‌ها برای دسته‌بندی -->
@@ -64,9 +64,9 @@
         v-for="food in foodList"
         :key="food.id"
         :to="`/food/${food.id}`"
-        class="mb-2 bg-gray-800 p-4 rounded flex items-center"
+        class="mb-2 bg-gray-800 p-4 rounded-3xl flex items-center"
       >
-        <img :src="food.image" alt="Product" class="w-16 h-16 object-cover rounded-lg mr-4">
+        <img :src="food.image" alt="Product" class=" h-16 object-cover rounded-lg mr-4">
         <div class="flex flex-col w-full">
           <span class="text-white text-xl pb-2 text-center">{{ food.title }}</span>
           <span class="justify-center text-green-500 text-[15px] font-normal text-center" style="direction: rtl;">
@@ -107,12 +107,48 @@ interface Food {
   animate: string;
 }
 const foodList = ref<Food[]>([
-  { id: 1, title: 'چیــز کــیــک', image: '/img/pexels-elifgokce787-16871293-removebg-preview.png', price: 86, dis: 'پنیر خامه ای , بیسکوییت , سس شکلات', animate: 'animate-spin1' },
-  { id: 2, title: 'کاپـوچیــنو', image: '/img/pexels-orlovamaria-4916561-removebg-preview.png', price: 73, dis: 'پنیر خامه ای , بیسکوییت , سس شکلات', animate: 'animate-spin1' },
-  { id: 3, title: 'آیـس لـته', image: '/img/ice-latte2.png', price: 76, dis: 'پنیر خامه ای , بیسکوییت , سس شکلات', animate: 'animate-bounce' },
-  { id: 4, title: 'شیک توت فرنگی', image: '/img/shake-toot.png', price: 90, dis: 'پنیر خامه ای , بیسکوییت , سس شکلات', animate: 'animate-bounce' },
-  { id: 5, title: 'سیب زمینی', image: '/img/frise.png', price: 98, dis: 'سیب زمینی , سس , آویشن , لیمو', animate: 'animate-spin1' },
+  {
+    id: 1,
+    title: 'چیــز کــیــک',
+    image: '/img/pexels-elifgokce787-16871293-removebg-preview.png',
+    price: 86,
+    dis: 'پنیر خامه‌ای، بیسکوییت، لایه‌ای از سس شکلات',
+    animate: 'animate-spin1'
+  },
+  {
+    id: 2,
+    title: 'کاپـوچیــنو',
+    image: '/img/pexels-orlovamaria-4916561-removebg-preview.png',
+    price: 73,
+    dis: 'قهوه‌ی داغ، کف شیر، طعم‌دهی ملایم شکلات',
+    animate: 'animate-spin1'
+  },
+  {
+    id: 3,
+    title: 'آیـس لـته',
+    image: '/img/ice-latte2.png',
+    price: 76,
+    dis: 'قهوه سرد، شیر خنک، همراه با یخ',
+    animate: 'animate-bounce'
+  },
+  {
+    id: 4,
+    title: 'شیک توت فرنگی',
+    image: '/img/shake-toot.png',
+    price: 90,
+    dis: 'توت فرنگی تازه، بستنی، شیر خامه‌ای',
+    animate: 'animate-bounce'
+  },
+  {
+    id: 5,
+    title: 'سیب زمینی',
+    image: '/img/frise.png',
+    price: 98,
+    dis: 'سیب زمینی سرخ شده، سس مخصوص، طعم‌دهی آویشن و لیمو',
+    animate: 'animate-spin1'
+  }
 ]);
+
 
 // برای کنترل وضعیت اسکرول و کوچک‌سازی هدر
 const isScrolled = ref(false);
