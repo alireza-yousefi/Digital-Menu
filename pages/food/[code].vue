@@ -1,9 +1,9 @@
 <template>
-    <div class=" bg-gradient-to-b  from-slate-700 to-black bg-cover flex flex-col text-white">
+    <div class=" bg-gradient-to-b  from-slate-700 to-black bg-cover flex flex-col text-white min-h-screen">
       <!-- Header Row -->
       <div class="flex flex-row mt-1 items-center justify-between px-4 py-4">
-        <Nuxt-Link to="/menu">  <UIcon name="tabler:arrow-back-up" class="w-10 h-10" />
-           </nuxt-link>
+        <!-- <Nuxt-Link to="/menu">  <UIcon name="tabler:arrow-back-up" class="w-10 h-10" /> -->
+          <NuxtLink to="/menu"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="white" d="m7.825 13l4.9 4.9q.3.3.288.7t-.313.7q-.3.275-.7.288t-.7-.288l-6.6-6.6q-.15-.15-.213-.325T4.426 12t.063-.375t.212-.325l6.6-6.6q.275-.275.688-.275t.712.275q.3.3.3.713t-.3.712L7.825 11H19q.425 0 .713.288T20 12t-.288.713T19 13z"/></svg></NuxtLink>
           <span  class="text-2xl w-full font-bold text-center flex-grow">{{ title }}</span>
           <div class="w-10 h-10" >
       </div>
@@ -42,7 +42,8 @@
         <span class="Estedad_FD_Light float-left font-light text-black">هزار تومان</span>
         <span class="text-[25px] ml-1">{{ price }}</span>
       </div>
-      <button @click="addToCart" class="bg-black text-white px-6 py-2 rounded-full">افزودن به سبد سفارش</button>
+      <!-- <button @click="addToCart" class="bg-black text-white px-6 py-2 rounded-full">افزودن به سبد سفارش</button> -->
+      <NuxtLink to="/menu" class="bg-black text-white px-6 py-2 rounded-full" @click="addToCart"> افزودن به سبد سفارش</NuxtLink>
     </div>
 
     </div>

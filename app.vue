@@ -1,6 +1,6 @@
 
 <template>
-  <div class="Estedad_FD_Light">
+  <div class="Estedad_FD_Light h-full">
    
     <NuxtPage />
   </div>

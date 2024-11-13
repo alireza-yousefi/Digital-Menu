@@ -1,5 +1,5 @@
 <template>
-    <div class="text-white min-h-screen p-4 pb-24 bg-black rtl">
+    <div class="text-white min-h-screen p-4 pb-24 bg-black rtl overflow-auto">
       <div class="flex justify-between">
       <h1 class="text-2xl font-bold text-center mb-4">سبد سفارش شما</h1>
       <NuxtLink to="/menu"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="white" d="m7.825 13l4.9 4.9q.3.3.288.7t-.313.7q-.3.275-.7.288t-.7-.288l-6.6-6.6q-.15-.15-.213-.325T4.426 12t.063-.375t.212-.325l6.6-6.6q.275-.275.688-.275t.712.275q.3.3.3.713t-.3.712L7.825 11H19q.425 0 .713.288T20 12t-.288.713T19 13z"/></svg></NuxtLink>
@@ -12,7 +12,7 @@
         >
         <div class="flex-row w-52">
           <span class="text-xl">{{ item.title }}</span>
-          <div class="flex  "><span class="text-lg font-bold text-orange-500">{{ item.price * item.quantity }}</span> <span class="text-[11px] content-center">هزار تومان</span></div>
+          <div class="flex  "><span class="text-lg font-bold text-orange-500 mx-1">{{ item.price * item.quantity }}</span> <span class="text-[11px] content-center">هزار تومان</span></div>
 
         </div>
         <div class="flex items-center">
@@ -56,8 +56,8 @@
   
       <!-- مجموع قیمت کل -->
       <div class="fixed bottom-0 left-0 w-full bg-gray-900 p-4 text-lg font-bold text-white flex justify-between items-center">
-        <span>مجموع قیمت:</span>
-        <span>{{ totalPrice }} هزار تومان</span>
+        <span>مجموع قیمت</span>
+        <div class="text-xl">{{ totalPrice }} <span class="font-light text-orange-500 text-sm">هزار تومان</span></div>
       </div>
 </div>
 <div class="absolute bottom-[60px] left-1/2 transform -translate-x-1/2 w-full">
@@ -123,9 +123,10 @@ const decrementQuantity = (id: number) => {
 
 
 // محاسبه مجموع قیمت کل
-const totalPrice = computed(() =>
-  cart.value.reduce((sum, item) => sum + item.price * item.quantity, 0)
-);
+const totalPrice = computed(() => {
+  const total = cart.value.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  return total.toLocaleString('fa-IR'); // اینجا 'fa-IR' برای فرمت فارسی
+});
 
 // بارگذاری سبد خرید هنگام لود شدن صفحه
 onMounted(() => {
