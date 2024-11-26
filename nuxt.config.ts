@@ -4,9 +4,10 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   ssr: false,
   css: ["@/public/css/font.css"],
-  plugins: [{ src: "~/plugins/bootstrap", mode: 'client' }],
+  plugins: [{ src: "~/plugins/bootstrap", mode: 'client' } 
+  ],
 
-  modules: ["@nuxt/ui"],
+  modules: ["@nuxt/ui" , '@pinia/nuxt'],
   colorMode: {
     preference: 'light'
   },

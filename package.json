@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "@nuxt/ui": "^2.18.4",
+    "@pinia/nuxt": "^0.7.0",
     "canvas": "^2.11.2",
     "fabric": "^6.4.3",
     "nuxt": "^3.12.4",
+    "pinia": "^2.2.6",
     "swiper": "^11.1.9",
     "vue": "latest"
   }
