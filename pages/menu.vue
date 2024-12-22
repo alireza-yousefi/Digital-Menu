@@ -2,7 +2,7 @@
   <div class=" text-white min-h-screen  p-4 ">
     
     <!-- هدر -->
-    <div :class="['sticky top-0 z-50  transition-all duration-300 ', { 'scrolled bg-black': isScrolled }]" ref="header">
+    <div :class="['sticky top-0 z-50  transition-all duration-300 ', { 'scrolled bg-3': isScrolled }]" ref="header">
   <div :class="['flex justify-between items-center mb-1', isScrolled ? 'header-small' : 'header-large']">
 
     <nuxt-link  to="/orders">
@@ -273,5 +273,11 @@ const toggleMenu = () => {
     background-repeat: no-repeat;
     background-color: black;
     background-position-y: -579px;
+}
+.bg-3 {
+  background-color: #2d353f;
+
+  /* background-size: cover; */
+   /* @apply bg-gradient-to-b  from-slate-700; */
 }
 </style>

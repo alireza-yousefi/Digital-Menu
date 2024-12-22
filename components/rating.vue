@@ -64,6 +64,7 @@ onMounted( async () => {
 
 <style scoped>
 .ratingBar{
-  @apply flex flex-row;
+  @apply flex flex-row justify-center;
 }
+
 </style>

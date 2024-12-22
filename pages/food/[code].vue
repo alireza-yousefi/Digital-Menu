@@ -102,7 +102,7 @@
           id="name"
           v-model="newComment.name"
           :class="[
-            errors.name ? 'bg-red-50 border-red-500 text-red-900' : 'dark border-gray-300 ',
+            errors.name ? 'bg-red-50 border-red-500 text-red-900' : 'dark border ',
             'block w-full rounded-lg focus:ring focus:border focus:ring-red-500 focus:border-red-500 p-2.5 text-sm',
           ]"
           placeholder="نام خود را وارد کنید"
@@ -113,25 +113,22 @@
       </div>
 
       <!-- امتیاز به شکل ستاره‌ها -->
-      <div class="mt-4">
-        <label class="block mb-2 text-m font-medium">امتیاز</label>
+      <div class="mt-4 justify-self-center w-full item">
+        <label class="block mb-2  text-m font-medium">امتیاز</label>
         <Rating :size="45" :value="newComment.rating" @change="(data) => newComment.rating = data" />
-        <p v-if="errors.rating" class="mt-2 text-sm text-red-600">
-          <span class="font-medium">خطا:</span> امتیاز الزامی است.
+        <p v-if="errors.rating" class="mt-2   text-sm text-red-600">
+          <span class="font-medium justify-self-start">خطا:</span> امتیاز الزامی است.
         </p>
       </div>
-
       <!-- پیام (اختیاری) -->
       <div class="mt-4">
         <label for="message" class="block mb-2 text-sm font-medium">پیام (اختیاری)</label>
         <textarea
           id="message"
           v-model="newComment.message"
-          class="dark border-gray-300 block w-full rounded-lg focus:ring focus:border focus:ring-gray-500 focus:border-gray-500 p-2.5 text-sm"
+          class="dark border block w-full rounded-lg focus:ring focus:border focus:ring-gray-500 focus:border-gray-500 p-2.5 text-sm"
           placeholder="پیام خود را وارد کنید (اختیاری)"
-        ></textarea>
-      </div>
-
+        ></textarea></div>
       <div class="w-full" style="direction: ltr;">
         <!-- دکمه ارسال -->
         <button

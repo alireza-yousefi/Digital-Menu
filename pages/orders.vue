@@ -46,25 +46,39 @@
             
           </button>
         </div>
+           <!-- مجموع قیمت کل -->
+      <div class="fixed bottom-0 left-0 w-full bg-gray-900 p-4 text-lg font-bold text-white flex justify-between items-center">
+        <span>مجموع قیمت</span>
+        <div class="text-xl">{{ totalPrice }} <span class="font-light text-orange-500 text-sm">هزار تومان</span></div>
+        <div class="absolute fixed bottom-[60px] left-1/2 transform -translate-x-1/2 w-full">
+    <button class="bg-orange-500 px-6 py-2 text-[18px] font-bold  w-full md:w-auto">
+      ثبت سفارش
+    </button>
+  </div>
       </div>
-      <div v-else class="text-center text-gray-400">سبد خرید شما خالی است</div>
+
+
+      </div>
+      <div v-else class="text-center align-middle mt-40 text-gray-400">
+        <div>
+          <div>
+          <img class="w-48 justify-self-center" src="/img/plate.png" alt="">
+        </div>
+        <div>
+          <span >سبد خرید شما خالی است</span>
+        </div>
+        </div>
+      </div>
+      
 
       <div class="relative">
   <!-- محتوای صفحه Orders -->
   
 
   
-      <!-- مجموع قیمت کل -->
-      <div class="fixed bottom-0 left-0 w-full bg-gray-900 p-4 text-lg font-bold text-white flex justify-between items-center">
-        <span>مجموع قیمت</span>
-        <div class="text-xl">{{ totalPrice }} <span class="font-light text-orange-500 text-sm">هزار تومان</span></div>
-      </div>
+   
 </div>
-<div class="absolute bottom-[60px] left-1/2 transform -translate-x-1/2 w-full">
-    <button class="bg-orange-500 px-6 py-2 text-[18px] font-bold  w-full md:w-auto">
-      ثبت سفارش
-    </button>
-  </div>
+
     </div>
     
   </template>
