@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@nuxt/ui": "^2.18.4",
@@ -18,5 +19,8 @@
     "pinia": "^2.2.6",
     "swiper": "^11.1.9",
     "vue": "latest"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
   }
 }

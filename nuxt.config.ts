@@ -13,6 +13,8 @@ export default defineNuxtConfig({
   },
   
   app: {
+    baseURL: '/Digital-Menu/', 
+    buildAssetsDir: '/-assets/',
     head: {
       meta: [
         {
