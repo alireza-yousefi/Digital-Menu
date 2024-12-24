@@ -1,20 +1,7 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-04-03',
-  devtools: { enabled: false },
-  ssr: false,
-  css: ["@/public/css/font.css"],
-  plugins: [{ src: "~/plugins/bootstrap", mode: 'client' } 
-  ],
-
-  modules: ["@nuxt/ui" , '@pinia/nuxt'],
-  colorMode: {
-    preference: 'light'
-  },
-  
   app: {
     baseURL: '/Digital-Menu/', 
-    buildAssetsDir: '/-assets/',
+    buildAssetsDir: 'assets/',
     head: {
       meta: [
         {
@@ -23,5 +10,15 @@ export default defineNuxtConfig({
         }
       ]
     }
+  },
+  compatibilityDate: '2024-04-03',
+  devtools: { enabled: false },
+  ssr: false,
+  css: ["@/assets/css/font.css"],
+  plugins: [{ src: "~/plugins/bootstrap", mode: 'client' }],
+
+  modules: ["@nuxt/ui", '@pinia/nuxt'],
+  colorMode: {
+    preference: 'light'
   }
-})
+});
