@@ -2,6 +2,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/Digital-Menu/', 
     buildAssetsDir: 'assets/',
+    // buildAssetsDir: '/Digital-Menu/_nuxt/',
     head: {
       meta: [
         {

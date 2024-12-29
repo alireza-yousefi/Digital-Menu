@@ -22,7 +22,7 @@ export const useFoodStore = defineStore('foodStore', {
                 id: 2,
                 title: 'کاپـوچیــنو',
                 category: 'قهوه بار',
-                image: '/img/pexels-orlovamaria-4916561-removebg-preview.png',
+                image: '/Digital-Menu/img/pexels-orlovamaria-4916561-removebg-preview.png',
                 price: 73,
                 descriptions: {
                     short: 'قهوه‌ی داغ، کف شیر، طعم‌دهی ملایم شکلات',
@@ -44,7 +44,7 @@ export const useFoodStore = defineStore('foodStore', {
                 id: 1,
                 title: 'چیــز کــیــک',
                 category: 'کیک',
-                image: '/img/pexels-elifgokce787-16871293-removebg-preview.png',
+                image: '/Digital-Menu/img/pexels-elifgokce787-16871293-removebg-preview.png',
                 price: 86,
                 descriptions: {
                     short: 'پنیر خامه‌ای، بیسکوییت، لایه‌ای از سس شکلات',
@@ -69,7 +69,7 @@ export const useFoodStore = defineStore('foodStore', {
             {
                 id: 3,
                 title: 'آیـس لـته',
-                image: '/img/ice-latte2.png',
+                image: '/Digital-Menu/img/ice-latte2.png',
                 category: 'قهوه سرد',
                 price: 76,
                 descriptions: {
@@ -91,7 +91,7 @@ export const useFoodStore = defineStore('foodStore', {
             {
                 id: 4,
                 title: 'شیک توت فرنگی',
-                image: '/img/shake-toot.png',
+                image: '/Digital-Menu/img/shake-toot.png',
                 price: 90,
                 category: 'شیک',
                 descriptions: {
@@ -114,7 +114,7 @@ export const useFoodStore = defineStore('foodStore', {
             {
                 id: 5,
                 title: 'سیب زمینی',
-                image: '/img/frise.png',
+                image: '/Digital-Menu/img/frise.png',
                 category: 'غذا',
                 price: 98,
                 descriptions: {
@@ -138,7 +138,7 @@ export const useFoodStore = defineStore('foodStore', {
                 id: 6,
                 title: 'اسپرسو',
                 category: 'قهوه بار',
-                image: '/img/Espresso.png',
+                image: '/Digital-Menu/img/Espresso.png',
                 price: 55,
                 descriptions: {
                     short: 'قهوه‌ی غلیظ و تند، بهترین برای شروع روز',
@@ -158,7 +158,7 @@ export const useFoodStore = defineStore('foodStore', {
                 id: 7,
                 title: 'دوپیو (دوبل)',
                 category: 'قهوه بار',
-                image: '/img/Espresso.png',
+                image: '/Digital-Menu/img/Espresso.png',
                 price: 60,
                 descriptions: {
                     short: 'دو شات اسپرسو برای علاقه‌مندان به قهوه پرقدرت',
@@ -178,7 +178,7 @@ export const useFoodStore = defineStore('foodStore', {
                 id: 8,
                 title: 'آمریکانو',
                 category: 'قهوه بار',
-                image: '/img/Espresso.png',
+                image: '/Digital-Menu/img/Espresso.png',
                 price: 65,
                 descriptions: {
                     short: 'قهوه رقیق با آب گرم، انتخابی ملایم‌تر',
@@ -198,7 +198,7 @@ export const useFoodStore = defineStore('foodStore', {
                 id: 9,
                 title: 'لته',
                 category: 'قهوه بار',
-                image: '/img/Espresso.png',
+                image: '/Digital-Menu/img/Espresso.png',
                 price: 68,
                 descriptions: {
                     short: 'قهوه با کف شیر نرم، طعم ملایم و کرمی',
@@ -219,7 +219,7 @@ export const useFoodStore = defineStore('foodStore', {
                 id: 10,
                 title: 'موکا',
                 category: 'قهوه بار',
-                image: '/img/mocha.png',
+                image: '/Digital-Menu/img/mocha.png',
                 price: 75,
                 descriptions: {
                     short: 'مخلوط قهوه، شکلات و کف شیر',
@@ -241,7 +241,7 @@ export const useFoodStore = defineStore('foodStore', {
                 id: 11,
                 title: 'ماکیاتو',
                 category: 'قهوه بار',
-                image: '/img/mocha.png',
+                image: '/Digital-Menu/img/mocha.png',
                 price: 70,
                 descriptions: {
                     short: 'شات اسپرسو با کمی کف شیر',
@@ -262,7 +262,7 @@ export const useFoodStore = defineStore('foodStore', {
                 id: 12,
                 title: 'ترک',
                 category: 'قهوه بار',
-                image: '/img/Espresso.png',
+                image: '/Digital-Menu/img/Espresso.png',
                 price: 65,
                 descriptions: {
                     short: 'قهوه‌ای سنتی با عطر و طعمی خاص',
@@ -284,7 +284,7 @@ export const useFoodStore = defineStore('foodStore', {
                 id: 13,
                 title: 'آیس کافی',
                 category: 'قهوه سرد',
-                image: '/img/ice-latte2.png',
+                image: '/Digital-Menu/img/ice-latte2.png',
                 price: 80,
                 descriptions: {
                     short: 'قهوه خنک و انرژی‌بخش',
@@ -305,7 +305,7 @@ export const useFoodStore = defineStore('foodStore', {
                 id: 14,
                 title: 'آیس موکا',
                 category: 'قهوه سرد',
-                image: '/img/ice-latte2.png',
+                image: '/Digital-Menu/img/ice-latte2.png',
                 price: 85,
                 descriptions: {
                     short: 'ترکیبی از قهوه، شکلات و یخ',
@@ -327,7 +327,7 @@ export const useFoodStore = defineStore('foodStore', {
                 id: 15,
                 title: 'آفوگاتو',
                 category: 'قهوه سرد',
-                image: '/img/Affogato.png',
+                image: '/Digital-Menu/img/Affogato.png',
                 price: 95,
                 descriptions: {
                     short: 'ترکیب قهوه و بستنی، خوشمزه و خاص',
@@ -563,7 +563,7 @@ export const useFoodStore = defineStore('foodStore', {
                 id: 26,
                 title: 'پنینی مرغ',
                 category: 'غذا',
-                image: '/img/Chicken-panini.png',
+                image: '/Digital-Menu/img/Chicken-panini.png',
                 price: 120,
                 descriptions: {
                     short: 'پنینی با مرغ، سبزیجات تازه و سس مخصوص',
@@ -585,7 +585,7 @@ export const useFoodStore = defineStore('foodStore', {
                 id: 27,
                 title: 'پنینی بیکن',
                 category: 'غذا',
-                image: '/img/panini-bacon.png',
+                image: '/Digital-Menu/img/panini-bacon.png',
                 price: 130,
                 descriptions: {
                     short: 'پنینی با بیکن و پنیر، طعمی خوشمزه',
@@ -736,7 +736,7 @@ export const useFoodStore = defineStore('foodStore', {
                 id: 34,
                 title: 'شیک اسپرسو',
                 category: 'شیک',
-                image: '/img/Espresso-shake.png',
+                image: '/Digital-Menu/img/Espresso-shake.png',
                 price: 105,
                 descriptions: {
                     short: 'شیک قهوه با طعم غلیظ اسپرسو',
