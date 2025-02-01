@@ -20,6 +20,9 @@ importers:
       fabric:
         specifier: ^6.4.3
         version: 6.4.3
+      nuxi:
+        specifier: ^3.21.1
+        version: 3.21.1
       nuxt:
         specifier: ^3.12.4
         version: 3.13.2(@parcel/watcher@2.4.1)(@types/node@22.8.1)(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.24.2)(terser@5.36.0)(vite@5.4.10(@types/node@22.8.1)(terser@5.36.0))
@@ -2712,8 +2715,8 @@ packages:
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
 
-  nuxi@3.15.0:
-    resolution: {integrity: sha512-ZVu45nuDrdb7nzKW2kLGY/N1vvFYLLbUVX6gUYw4BApKGGu4+GktTR5o48dGVgMYX9A8chaugl7TL9ZYmwC9Mg==}
+  nuxi@3.21.1:
+    resolution: {integrity: sha512-72OhQHeQg15SKZaoDjBTdrki4zqjShgVo69Dou7jm/euXchoss+VOU4/s73lvAXiVN2g84ogGdNSe0112N7ldA==}
     engines: {node: ^16.10.0 || >=18.0.0}
     hasBin: true
 
@@ -6889,7 +6892,7 @@ snapshots:
     dependencies:
       boolbase: 1.0.0
 
-  nuxi@3.15.0: {}
+  nuxi@3.21.1: {}
 
   nuxt@3.13.2(@parcel/watcher@2.4.1)(@types/node@22.8.1)(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.24.2)(terser@5.36.0)(vite@5.4.10(@types/node@22.8.1)(terser@5.36.0)):
     dependencies:
@@ -6929,7 +6932,7 @@ snapshots:
       mlly: 1.7.2
       nanotar: 0.1.1
       nitropack: 2.9.7(magicast@0.3.5)
-      nuxi: 3.15.0
+      nuxi: 3.21.1
       nypm: 0.3.12
       ofetch: 1.4.1
       ohash: 1.1.4
