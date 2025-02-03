@@ -15,7 +15,7 @@
 </style>
 <style scoped>
 .bg {
-  background-image: url("/img/download.jpg");
+  /* background-image: url("/img/download.jpg"); */
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top center;

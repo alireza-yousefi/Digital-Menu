@@ -15,11 +15,14 @@
     "@pinia/nuxt": "^0.7.0",
     "canvas": "^2.11.2",
     "fabric": "^6.4.3",
+    "konva": "^9.3.18",
     "nuxi": "^3.21.1",
     "nuxt": "^3.12.4",
     "pinia": "^2.2.6",
     "swiper": "^11.1.9",
-    "vue": "latest"
+    "vue": "latest",
+    "vue-fabric": "^0.1.42",
+    "vue-konva": "^3.2.0"
   },
   "devDependencies": {
     "gh-pages": "^6.2.0"

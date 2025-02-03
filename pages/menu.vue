@@ -154,9 +154,12 @@ function changeCategory(category: string) {
 
 
 const selectCategory = (category: string) => {
-  selectedCategory.value = category;
+  if (selectedCategory.value === category) {
+    selectedCategory.value = 'همه'; // بازگشت به حالت اولیه
+  } else {
+    selectedCategory.value = category; // انتخاب دسته‌بندی جدید
+  }
 };
-
 
 
 
@@ -276,6 +279,9 @@ const toggleMenu = () => {
 }
 .bg-3 {
   background-color: #2d353f;
+  margin-right: -18px;
+  margin-left: -18px;
+
 
   /* background-size: cover; */
    /* @apply bg-gradient-to-b  from-slate-700; */

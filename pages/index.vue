@@ -28,7 +28,7 @@
     <span >منوی دیجیتال </span>
 </nuxt-link>
 
-<nuxt-link to="/reserve" class="absolute bottom-40 bg-gray-400 rounded-3xl opacity-100 h-14 w-64 self-center z-20 place-content-center  text-3xl mt-20 text-center fade-up ">
+<nuxt-link to="/map" class="absolute bottom-40 bg-gray-400 rounded-3xl opacity-100 h-14 w-64 self-center z-20 place-content-center  text-3xl mt-20 text-center fade-up ">
     <span > نقــشـه ی کـــافه </span>
 </nuxt-link>
     
