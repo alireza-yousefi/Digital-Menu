@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-konva">
+  <div class="bg-konva z-10" :class="{ 'blur-background': showModal }">
     <v-stage :config="stageConfig">
       <v-layer>
         <!-- بار (Bar) -->
@@ -21,7 +21,7 @@
             y: table.top,
             width: table.width,
             height: table.height,
-            opacity: table.isReserved ? 0.5 : 1,
+            opacity: table.opacity,
             id: table.id,
             listening: !table.isReserved
           }"
@@ -29,6 +29,17 @@
         />
       </v-layer>
     </v-stage>
+
+    <!-- مودال رزرو -->
+    <div v-if="showModal" class="modal-overlay">
+      <div class="modal-content">
+        <p class="text-black">آیا می‌خواهید میز را رزرو کنید؟</p>
+        <div class="modal-buttons">
+          <button @click="confirmReservation">بله، رزرو می‌کنم</button>
+          <button @click="cancelReservation">لغو</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -43,13 +54,13 @@ const stageConfig = ref({
 
 // لیست میزها
 const tables = ref([
-  { type: '2 نفره', isReserved: false, top: 0, left: 10, id: 'table1', width: 95, height: 95 },
-  { type: '2 نفره', isReserved: true, top: 160, left: 10, id: 'table2', width: 95, height: 95 },
-  { type: '3 نفره', isReserved: true, top: 320, left: 10, id: 'table3', width: 95, height: 95 },
-  { type: '4 نفره', isReserved: false, top: 110, left: 300, id: 'table4', width: 102, height: 102 },
-  { type: '6 نفره', isReserved: false, top: 220, left: 280, id: 'table5', width: 140, height: 140 },
-  { type: '4 نفره', isReserved: true, top: 370, left: 300, id: 'table6', width: 102, height: 102 },
-  { type: '4 نفره', isReserved: false, top: 470, left: 240, id: 'table7', width: 102, height: 102 }
+  { type: '2 نفره', isReserved: false, top: 0, left: 10, id: 'table1', width: 80, height: 105, opacity: 1 },
+  { type: '2 نفره', isReserved: false, top: 160, left: 10, id: 'table2', width: 80, height: 105, opacity: 1 },
+  { type: '3 نفره', isReserved: false, top: 320, left: 10, id: 'table3', width: 80, height: 105, opacity: 1 },
+  { type: '4 نفره', isReserved: false, top: 110, left: 300, id: 'table4', width: 102, height: 102, opacity: 1 },
+  { type: '6 نفره', isReserved: false, top: 220, left: 280, id: 'table5', width: 140, height: 140, opacity: 1 },
+  { type: '4 نفره', isReserved: false, top: 370, left: 300, id: 'table6', width: 102, height: 102, opacity: 1 },
+  { type: '4 نفره', isReserved: false, top: 470, left: 240, id: 'table7', width: 102, height: 102, opacity: 1 }
 ]);
 
 // تنظیمات بار (Bar)
@@ -57,8 +68,8 @@ const barConfig = ref({
   image: null,
   x: -30,
   y: 360,
-  width: 320,
-  height: 280
+  width: 270,
+  height: 300
 });
 
 // تنظیمات درب (Door)
@@ -73,18 +84,20 @@ const doorConfig = ref({
 // تنظیمات حوض (Pool)
 const poolConfig = ref({
   image: null,
-  x: 100,
+  x: 30,
   y: 80,
-  width: 250,
+  width: 320,
   height: 360
 });
 
-// لیست میزهای انتخاب شده
-const selectedTables = ref([]);
+// حالت‌های مودال
+const showModal = ref(false);
+const selectedTable = ref(null);
 
 // بارگذاری تصاویر
 onMounted(async () => {
   await loadImages();
+  checkReservations();
 });
 
 // تابع بارگذاری تصاویر
@@ -121,29 +134,44 @@ const getTableImage = (type) => {
 };
 
 // تابع کلیک روی میز
-const handleTableClick = async (table) => {
+const handleTableClick = (table) => {
   if (table.isReserved) return;
 
-  const index = selectedTables.value.indexOf(table.id);
-  if (index > -1) {
-    // اگر میز انتخاب شده بود، آن را از لیست حذف کنید
-    selectedTables.value.splice(index, 1);
-    table.image = await loadImage(getTableImage(table.type)); // بازگشت به تصویر اصلی
-  } else {
-    // اگر میز انتخاب نشده بود، آن را به لیست اضافه کنید
-    selectedTables.value.push(table.id);
-    table.image = await loadImage(getSelectedTableImage(table.type)); // تغییر به تصویر قرمز
+  selectedTable.value = table;
+  showModal.value = true;
+};
+
+// تابع تأیید رزرو
+const confirmReservation = () => {
+  if (selectedTable.value) {
+    selectedTable.value.isReserved = true;
+    selectedTable.value.opacity = 0.5;
+    saveReservation(selectedTable.value.id);
+    showModal.value = false;
   }
 };
 
-// تابع دریافت تصویر میز انتخاب شده
-const getSelectedTableImage = (type) => {
-  const images = {
-    '2 نفره': 'img/table-4-red.png',
-    '4 نفره': 'img/table-6-red.png',
-    '6 نفره': 'img/table-8-red.png'
-  };
-  return images[type] || 'img/tableshadow.png';
+// تابع لغو رزرو
+const cancelReservation = () => {
+  showModal.value = false;
+};
+
+// تابع ذخیره رزرو در localStorage
+const saveReservation = (tableId) => {
+  const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+  reservations.push(tableId);
+  localStorage.setItem('reservations', JSON.stringify(reservations));
+};
+
+// تابع بررسی رزروها از localStorage
+const checkReservations = () => {
+  const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+  tables.value.forEach(table => {
+    if (reservations.includes(table.id)) {
+      table.isReserved = true;
+      table.opacity = 0.5;
+    }
+  });
 };
 </script>
 
@@ -155,5 +183,52 @@ const getSelectedTableImage = (type) => {
   margin: 0;
   padding: 20px;
   min-height: 100vh;
+  position: relative;
+}
+
+.blur-background {
+  --tw-bg-opacity: 0.8;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.modal-buttons {
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-buttons button:first-child {
+  background: green;
+  color: white;
+}
+
+.modal-buttons button:last-child {
+  background: red;
+  color: white;
 }
 </style>

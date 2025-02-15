@@ -2,21 +2,7 @@
     <div class="flex flex-col h-screen text-white">
         <div v-if="isMenuOpen" class="fixed inset-0 z-50 bg-black bg-opacity-80" @click="toggleMenu">
 
-<!-- <div
-  :class="['fixed top-0 left-0 z-1000 bg-gray-900 w-64 h-full transform transition-transform overflow-hidden ', isMenuOpen ? 'translate-x-0' : '-translate-x-full']"
-> -->
-  <!-- <div class="p-4 text-white">
-    <h2 class="text-3xl font-bold mb-4">منو</h2>
-    <ul>
-      <li class="py-2"><nuxt-link to="/">خانه</nuxt-link></li>
-      <li class="py-2"><nuxt-link to="/orders">سفارش‌ها</nuxt-link></li>
-      <li class="py-2"><nuxt-link to="/about">درباره ما</nuxt-link></li>
-      <!-- لینک‌های دیگر به دلخواه -->
-       <!-- <div class="mt-20 text-center">
-<span >developed by</span><br><span class="font-bold text-orange-500 text-xl">Alireza Yousefi</span> </div>
-    </ul>
-  </div> --> -->
-<!-- </div> -->
+
 </div>
 
 <img src="public\img\Remove-bg.ai_1724507884769.png " class="fade-opacity absolute opacity-50 z-100 center" alt="">
